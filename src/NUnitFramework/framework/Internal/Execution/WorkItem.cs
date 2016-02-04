@@ -430,6 +430,9 @@ namespace NUnit.Framework.Internal.Execution
 
             _context.Listener.TestFinished(Result);
 
+            _context.TestObject = null;
+            _test.Fixture = null;
+
             if (Completed != null)
                 Completed(this, EventArgs.Empty);
         }
