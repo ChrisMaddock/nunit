@@ -846,7 +846,10 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref L
     if (isAppveyor)
     {
         if (!FileExists(resultPath))
+        {
             Warning("No result file at {0}", resultPath);
+            return;
+        }
 
         var fileText = System.IO.File.ReadAllText(resultPath);
         Information(fileText);
@@ -874,7 +877,10 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, strin
     if (isAppveyor)
     {
         if (!FileExists(resultPath))
+        {
             Warning("No result file at {0}", resultPath);
+            return;
+        }
 
         var fileText = System.IO.File.ReadAllText(resultPath);
         Information(fileText);
