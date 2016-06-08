@@ -848,7 +848,8 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref L
         if (!FileExists(resultPath))
             Warning("No result file at {0}", resultPath);
 
-        Information(File.ReadAllText(resultPath));
+        var fileText = File.ReadAllText(resultPath);
+        Information(fileText);
         BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
     }
 }
@@ -875,7 +876,8 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, strin
         if (!FileExists(resultPath))
             Warning("No result file at {0}", resultPath);
 
-        Information(File.ReadAllText(resultPath));
+        var fileText = File.ReadAllText(resultPath);
+        Information(fileText);
         BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
     }
 }
