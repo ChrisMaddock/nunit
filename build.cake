@@ -829,6 +829,8 @@ void BuildProject(string projectPath, string configuration, MSBuildPlatform buil
 
 void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref List<string> errorDetail)
 {
+    var resultPath = workingDir + "TestResult.xml";
+
     int rc = StartProcess(
         MakeAbsolute(exePath),
         new ProcessSettings()
@@ -840,10 +842,18 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref L
         errorDetail.Add(string.Format("{0}: {1} tests failed",framework, rc));
     else if (rc < 0)
         errorDetail.Add(string.Format("{0} returned rc = {1}", exePath, rc));
+
+    if (isAppveyor)
+    {
+        BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
+    }
+
 }
 
 void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, string framework, ref List<string> errorDetail)
 {
+    var resultPath = workingDir + "TestResult.xml";
+
     int rc = StartProcess(
         MakeAbsolute(exePath),
         new ProcessSettings()
@@ -856,6 +866,11 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, strin
         errorDetail.Add(string.Format("{0}: {1} tests failed",framework, rc));
     else if (rc < 0)
         errorDetail.Add(string.Format("{0} returned rc = {1}", exePath, rc));
+
+    if (isAppveyor)
+    {
+        BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
