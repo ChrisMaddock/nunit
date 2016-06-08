@@ -27,7 +27,7 @@ var isSilverlightSDKInstalled = FileExists(programFiles  + "\\MSBuild\\Microsoft
 
 var isAppveyor = BuildSystem.IsRunningOnAppVeyor;
 var dbgSuffix = configuration == "Debug" ? "-dbg" : "";
-var packageVersion = version + modifier + dbgSuffix;
+var packageVersion = (version + modifier + dbgSuffix).Substring(0, 20);
 
 //////////////////////////////////////////////////////////////////////
 // SUPPORTED FRAMEWORKS
@@ -843,8 +843,8 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref L
     else if (rc < 0)
         errorDetail.Add(string.Format("{0} returned rc = {1}", exePath, rc));
 
-    if (isAppveyor)
-    {
+/*    if (isAppveyor)
+    {*/
         if (!FileExists(resultPath))
         {
             Warning("No result file at {0}", resultPath);
@@ -852,7 +852,7 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref L
         }
 
         BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
-    }
+/*    }*/
 }
 
 void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, string framework, ref List<string> errorDetail)
@@ -872,8 +872,8 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, strin
     else if (rc < 0)
         errorDetail.Add(string.Format("{0} returned rc = {1}", exePath, rc));
 
-    if (isAppveyor)
-    {
+/*    if (isAppveyor)
+    {*/
         if (!FileExists(resultPath))
         {
             Warning("No result file at {0}", resultPath);
@@ -881,8 +881,8 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, strin
         }
 
         BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
-    }
-}
+/*    }
+}*/
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
