@@ -851,8 +851,6 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref L
             return;
         }
 
-        var fileText = System.IO.File.ReadAllText(resultPath);
-        Information(fileText);
         BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
     }
 }
@@ -882,8 +880,6 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, strin
             return;
         }
 
-        var fileText = System.IO.File.ReadAllText(resultPath);
-        Information(fileText);
         BuildSystem.AppVeyor.UploadTestResults(resultPath, AppVeyorTestResultsType.NUnit3);
     }
 }
