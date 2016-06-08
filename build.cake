@@ -829,7 +829,7 @@ void BuildProject(string projectPath, string configuration, MSBuildPlatform buil
 
 void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref List<string> errorDetail)
 {
-    var resultPath = workingDir + "TestResult.xml";
+    var resultPath = workingDir + "/TestResult.xml";
 
     int rc = StartProcess(
         MakeAbsolute(exePath),
@@ -852,7 +852,7 @@ void RunTest(FilePath exePath, DirectoryPath workingDir, string framework, ref L
 
 void RunTest(FilePath exePath, DirectoryPath workingDir, string arguments, string framework, ref List<string> errorDetail)
 {
-    var resultPath = workingDir + "TestResult.xml";
+    var resultPath = workingDir + "/TestResult.xml";
 
     int rc = StartProcess(
         MakeAbsolute(exePath),
