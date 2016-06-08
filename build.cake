@@ -28,7 +28,7 @@ var isSilverlightSDKInstalled = FileExists(programFiles  + "\\MSBuild\\Microsoft
 var isAppveyor = BuildSystem.IsRunningOnAppVeyor;
 var dbgSuffix = configuration == "Debug" ? "-dbg" : "";
 var rawPackageVersion = version + modifier + dbgSuffix;
-var packageVersion = (rawPackageVersion).Substring(0, Math.Min(20, rawPackageVersion.Length);
+var packageVersion = (rawPackageVersion).Substring(0, Math.Min(20, rawPackageVersion.Length));
 
 //////////////////////////////////////////////////////////////////////
 // SUPPORTED FRAMEWORKS
