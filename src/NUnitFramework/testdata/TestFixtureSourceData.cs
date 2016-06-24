@@ -70,7 +70,9 @@ namespace NUnit.TestData.TestFixtureSourceData
     {
         public StaticField_SameClass(string arg) : base(arg, "StaticFieldInClass") { }
 
+#pragma warning disable 414
         static object[] StaticField = new object[] { "StaticFieldInClass" };
+#pragma warning restore 414
     }
 
     [TestFixtureSource("StaticProperty")]
@@ -84,6 +86,7 @@ namespace NUnit.TestData.TestFixtureSourceData
         {
             get { return new object[] { new object[] { "StaticPropertyInClass" } }; }
         }
+
     }
 
     [TestFixtureSource("StaticProperty")]
@@ -108,7 +111,9 @@ namespace NUnit.TestData.TestFixtureSourceData
     {
         public InstanceField_SameClass(string arg) : base(arg, "InstanceFieldInClass") { }
 
+#pragma warning disable 414
         object[] InstanceField = new object[] { "InstanceFieldInClass" };
+#pragma warning restore 414
     }
 
     [TestFixtureSource("InstanceProperty")]
@@ -212,9 +217,11 @@ namespace NUnit.TestData.TestFixtureSourceData
             yield return new object[] { 12, 6, 2 };
         }
 
+#pragma warning disable 414
         static object[] MoreData = new object[] {
             new object[] { 12, 1, 12 },
             new object[] { 12, 2, 6 } };
+#pragma warning restore 414
     }
 
     [TestFixtureSource("IgnoredData")]
@@ -320,7 +327,9 @@ namespace NUnit.TestData.TestFixtureSourceData
             get { return new object[] { new object[] { "StaticProperty" } }; }
         }
 
+#pragma warning disable 414
         static object[] StaticField = new object[] { "StaticField" };
+#pragma warning restore 414
 
         static object[] StaticProperty
         {

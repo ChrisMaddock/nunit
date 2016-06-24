@@ -222,7 +222,7 @@ namespace NUnit.Framework.Attributes
 
                 Assert.Throws<InvalidDataSourceException>(() =>
                 {
-                    var data = dataSource.GetData(parameter);
+                    dataSource.GetData(parameter);
                 }); 
             }
         }
