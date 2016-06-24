@@ -22,7 +22,6 @@
 // ***********************************************************************
 
 using System;
-using System.Xml;
 using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal.Filters;
 
@@ -117,8 +116,6 @@ namespace NUnit.Framework.Internal
 
             return false;
         }
-
-        private static readonly char[] COMMA = new char[] { ',' };
 
         /// <summary>
         /// Create a TestFilter instance from an xml representation.
