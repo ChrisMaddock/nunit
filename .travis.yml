@@ -4,8 +4,11 @@ mono:
   - latest
   - 3.2.8
 
-install:
-  - certmgr --add -m https://api.nuget.org/v3/index.json
+matrix:
+  include:
+    - mono: 3.2.8
+        install: - certmgr --add -m http://www.microsoft.com/pki/mscorp/msitwww2(1).crt
+        
 script: 
   - ./build.sh --target "Travis"
     
