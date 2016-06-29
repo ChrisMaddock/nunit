@@ -4,6 +4,9 @@ mono:
   - latest
   - 3.2.8
 
+install:
+  - mozroots --sync --import
+
 script: 
   - ./build.sh --target "Travis"
     
