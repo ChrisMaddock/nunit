@@ -5,7 +5,7 @@ mono:
   - 3.2.8
 
 install:
-  - certmgr --add -m https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem
+  - certmgr --add -m https://api.nuget.org/v3/index.json
 script: 
   - ./build.sh --target "Travis"
     
