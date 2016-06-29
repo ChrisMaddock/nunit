@@ -5,10 +5,10 @@ mono:
   - 3.2.8
 
 install: 
-  - sudo certmgr --ssl -m "https://www.myget.org/F/nunit/api/v2"
-  - sudo certmgr --ssl -m "https://ci.appveyor.com/nuget/nunit"
-  - sudo certmgr --ssl -m "https://www.nuget.org/api/v2/"
-  - sudo certmgr --ssl -m "https://api.nuget.org/v3/index.json"
+  - mono certmgr --ssl -m "https://www.myget.org/F/nunit/api/v2"
+  - mono certmgr --ssl -m "https://ci.appveyor.com/nuget/nunit"
+  - mono certmgr --ssl -m "https://www.nuget.org/api/v2/"
+  - mono certmgr --ssl -m "https://api.nuget.org/v3/index.json"
 
 script: 
   - ./build.sh --target "Travis"
