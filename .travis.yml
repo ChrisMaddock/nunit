@@ -4,11 +4,8 @@ mono:
   - latest
   - 3.2.8
 
-matrix:
-  include:
-    - mono: 3.2.8
-        install: - certmgr --add -m http://www.microsoft.com/pki/mscorp/msitwww2(1).crt
-        
+install: - certmgr --add -m http://www.microsoft.com/pki/mscorp/msitwww2(1).crt
+
 script: 
   - ./build.sh --target "Travis"
     
