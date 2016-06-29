@@ -5,9 +5,10 @@ mono:
   - 3.2.8
 
 install:
-  - wget -q 'https://dxr.mozilla.org/mozilla-central/source/security/nss/lib/ckfw/builtins/certdata.txt' -O "/tmp/certdata.txt" 
-  - mozroots --import --ask-remove --file /tmp/certdata.txt
-
+  - certmgr --ssl https://api.nuget.org/v3/index.json
+  - certmgr --ssl https://ci.appveyor.com/nuget/nunit
+  - certmgr --ssl https://www.nuget.org/api/v2/
+  - certmgr --ssl https://www.myget.org/F/nunit/api/v2
 script: 
   - ./build.sh --target "Travis"
     
