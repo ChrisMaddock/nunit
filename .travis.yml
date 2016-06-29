@@ -5,7 +5,7 @@ mono:
   - 3.2.8
 
 install:
-  - wget -q 'http://mxr.mozilla.org/seamonkey/source/security/nss/lib/ckfw/builtins/certdata.txt?raw=1' -O "/tmp/certdata.txt" 
+  - wget -q 'http://dxr.mozilla.org/seamonkey/source/security/nss/lib/ckfw/builtins/certdata.txt?raw=1' -O "/tmp/certdata.txt" 
   - mozroots --import --ask-remove --file /tmp/certdata.txt
 
 script: 
