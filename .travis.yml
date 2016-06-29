@@ -5,11 +5,11 @@ mono:
   - 3.2.8
 
 install: 
-  - certmgr --add -m "http://www.microsoft.com/pki/mscorp/msitwww2(1).crt"
-  - certmgr --add -m "https://www.myget.org/F/nunit/api/v2"
-  - certmgr --add -m "https://ci.appveyor.com/nuget/nunit"
-  - certmgr --add -m "https://www.nuget.org/api/v2/"
-  - certmgr --add -m "https://api.nuget.org/v3/index.json"
+  - certmgr --ssl -m "https://www.myget.org/F/nunit/api/v2"
+  - certmgr --ssl -m "https://ci.appveyor.com/nuget/nunit"
+  - certmgr --ssl -m "https://www.nuget.org/api/v2/"
+  - certmgr --ssl -m "https://api.nuget.org/v3/index.json"
+  
 script: 
   - ./build.sh --target "Travis"
     
