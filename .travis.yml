@@ -4,9 +4,6 @@ mono:
   - latest
   - 3.2.8
 
-install:
-  - nuget restore tools/packages.config
-
 script: 
   - ./build.sh --target "Travis"
     
