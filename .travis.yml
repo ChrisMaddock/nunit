@@ -5,10 +5,7 @@ mono:
   - 3.2.8
 
 install:
-  - certmgr --ssl https://api.nuget.org/v3/index.json
-  - certmgr --ssl https://ci.appveyor.com/nuget/nunit
-  - certmgr --ssl https://www.nuget.org/api/v2/
-  - certmgr --ssl https://www.myget.org/F/nunit/api/v2
+  - certmgr --ssl https://www.geotrust.com/resources/root_certificates/certificates/GeoTrust_Global_CA.pem
 script: 
   - ./build.sh --target "Travis"
     
