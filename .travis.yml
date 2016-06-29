@@ -5,14 +5,11 @@ mono:
   - 3.2.8
 
 install: 
-  - openssl s_client -showcerts -connect "https://www.myget.org/F/nunit/api/v2" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
-  - certmgr --add -m Trust mycertfile.pem
-  - openssl s_client -showcerts -connect "https://ci.appveyor.com/nuget/nunit" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
-  - certmgr --add -m Trust mycertfile.pem
-  - openssl s_client -showcerts -connect "https://www.nuget.org/api/v2/" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
-  - certmgr --add -m Trust mycertfile.pem
-  - openssl s_client -showcerts -connect "https://api.nuget.org/v3/index.json" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
-  - certmgr --add -m Trust mycertfile.pem
+- sudo mozroots --import --machine --sync
+- sudo certmgr -ssl -m https://go.microsoft.com
+- sudo certmgr -ssl -m https://nugetgallery.blob.core.windows.net
+- sudo certmgr -ssl -m https://nuget.org
+
 
 script: 
   - ./build.sh --target "Travis"
