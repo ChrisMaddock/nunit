@@ -1,15 +1,15 @@
 language: csharp
-sudo: false
+sudo: required
 mono:
   - latest
   - 3.2.8
 
 install: 
-  - certmgr --ssl -m "https://www.myget.org/F/nunit/api/v2"
-  - certmgr --ssl -m "https://ci.appveyor.com/nuget/nunit"
-  - certmgr --ssl -m "https://www.nuget.org/api/v2/"
-  - certmgr --ssl -m "https://api.nuget.org/v3/index.json"
-  
+  - sudo certmgr --ssl -m "https://www.myget.org/F/nunit/api/v2"
+  - sudo certmgr --ssl -m "https://ci.appveyor.com/nuget/nunit"
+  - sudo certmgr --ssl -m "https://www.nuget.org/api/v2/"
+  - sudo certmgr --ssl -m "https://api.nuget.org/v3/index.json"
+
 script: 
   - ./build.sh --target "Travis"
     
