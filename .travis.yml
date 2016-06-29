@@ -5,7 +5,7 @@ mono:
   - 3.2.8
 
 install: 
-- sudo mozroots --import --machine --file certdata.txt --sync
+- sudo mozroots --import --machine --url "https://hg.mozilla.org/releases/mozilla-release/raw-file/default/security/nss/lib/ckfw/builtins/certdata.txt" --sync
 
 script: 
   - ./build.sh --target "Travis"
