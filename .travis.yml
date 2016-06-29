@@ -5,10 +5,14 @@ mono:
   - 3.2.8
 
 install: 
-  - mono certmgr --ssl -m "https://www.myget.org/F/nunit/api/v2"
-  - mono certmgr --ssl -m "https://ci.appveyor.com/nuget/nunit"
-  - mono certmgr --ssl -m "https://www.nuget.org/api/v2/"
-  - mono certmgr --ssl -m "https://api.nuget.org/v3/index.json"
+  - openssl s_client -showcerts -connect "https://www.myget.org/F/nunit/api/v2" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
+  - certmgr --add -m Trust mycertfile.pem
+  - openssl s_client -showcerts -connect "https://ci.appveyor.com/nuget/nunit" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
+  - certmgr --add -m Trust mycertfile.pem
+  - openssl s_client -showcerts -connect "https://www.nuget.org/api/v2/" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
+  - certmgr --add -m Trust mycertfile.pem
+  - openssl s_client -showcerts -connect "https://api.nuget.org/v3/index.json" </dev/null 2>/dev/null|openssl x509 -outform PEM > mycertfile.pem
+  - certmgr --add -m Trust mycertfile.pem
 
 script: 
   - ./build.sh --target "Travis"
